@@ -1,0 +1,151 @@
+Enter the input file name: 
+Word is: daigaku The type is: WORD1
+
+Word is: college The type is: ERROR
+
+Word is: kurasu The type is: WORD1
+
+Word is: class The type is: ERROR
+
+Word is: hon The type is: WORD1
+
+Word is: book The type is: ERROR
+
+Word is: tesuto The type is: WORD1
+
+Word is: test The type is: ERROR
+
+Word is: ie The type is: WORD1
+
+Word is: home* The type is: ERROR
+
+Word is: isu The type is: WORD1
+
+Word is: chair The type is: ERROR
+
+Word is: seito The type is: WORD1
+
+Word is: student The type is: ERROR
+
+Word is: sensei The type is: WORD1
+
+Word is: teacher The type is: ERROR
+
+Word is: tomodachi The type is: WORD1
+
+Word is: friend The type is: ERROR
+
+Word is: jidoosha The type is: WORD1
+
+Word is: car The type is: ERROR
+
+Word is: gyuunyuu The type is: WORD1
+
+Word is: milk The type is: ERROR
+
+Word is: sukiyaki The type is: WORD1
+
+Word is: tenpura The type is: WORD1
+
+Word is: sushi The type is: WORD1
+
+Word is: biiru The type is: WORD1
+
+Word is: beer The type is: ERROR
+
+Word is: sake The type is: WORD1
+
+Word is: tokyo The type is: WORD1
+
+Word is: kyuushuu The type is: WORD1
+
+Word is: Osaka The type is: ERROR
+
+Word is: choucho The type is: WORD1
+
+Word is: butterfly The type is: ERROR
+
+Word is: an The type is: WORD1
+
+Word is: idea The type is: WORD1
+
+Word is: yasashii The type is: WORD1
+
+Word is: easy The type is: ERROR
+
+Word is: muzukashii The type is: WORD1
+
+Word is: difficult The type is: ERROR
+
+Word is: ureshii The type is: WORD1
+
+Word is: pleased The type is: ERROR
+
+Word is: shiawase The type is: WORD1
+
+Word is: happy The type is: ERROR
+
+Word is: kanashii The type is: WORD1
+
+Word is: sad The type is: ERROR
+
+Word is: omoi The type is: WORD1
+
+Word is: heavy The type is: ERROR
+
+Word is: oishii The type is: WORD1
+
+Word is: delicious The type is: ERROR
+
+Word is: tennen The type is: WORD1
+
+Word is: natural The type is: ERROR
+
+Word is: nakI The type is: WORD2
+
+Word is: cry The type is: ERROR
+
+Word is: ikI The type is: WORD2
+
+Word is: go* The type is: ERROR
+
+Word is: tabE The type is: WORD2
+
+Word is: eat The type is: ERROR
+
+Word is: ukE The type is: WORD2
+
+Word is: take* The type is: ERROR
+
+Word is: kakI The type is: WORD2
+
+Word is: write The type is: WORD1
+
+Word is: yomI The type is: WORD2
+
+Word is: read The type is: ERROR
+
+Word is: nomI The type is: WORD2
+
+Word is: drink The type is: ERROR
+
+Word is: agE The type is: WORD2
+
+Word is: give The type is: ERROR
+
+Word is: moraI The type is: WORD2
+
+Word is: receive The type is: ERROR
+
+Word is: butsI The type is: WORD2
+
+Word is: hit The type is: ERROR
+
+Word is: kerI The type is: WORD2
+
+Word is: kick The type is: ERROR
+
+Word is: shaberI The type is: WORD2
+
+Word is: talk The type is: ERROR
+

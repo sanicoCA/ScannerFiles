@@ -1,0 +1,29 @@
+Use this list to set up your lexicon (dictionary) to be used in Part C. 
+
+  watashi
+  I/me
+  
+  anata
+  you
+  
+  kare 
+  he/him  
+   
+  kanojo 
+  she/her  
+  
+  sore  
+  it   
+     
+  mata                              	
+  Also
+  
+  soshite                          		
+  Then
+  
+  shikashi                          	
+  However
+  
+  dakara                            	
+  Therefore 
+

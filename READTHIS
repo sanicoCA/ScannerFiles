@@ -1,0 +1,7 @@
+
+Use scanner.cpp to write your scanner so that it will
+move smoothly onto the parser.
+
+In scannertest2, the 2nd column are words causing lexical errors.
+ 
+Check your outputs against correctoutput1 and correctoutput2 
