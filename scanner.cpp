@@ -139,7 +139,7 @@ bool punctuationToken(string s)
 }
 
 // ** Update the tokentype to be WORD1, WORD2, PERIOD and ERROR.
-enum tokentype {WORD1, WORD2, PERIOD, ERROR,
+typedef enum tokentype {WORD1, WORD2, PERIOD, ERROR,
                 VERB,VERBNEG,VERBPAST,VERBPASTNEG,
                 IS,WAS,OBJECT,SUBJECT,DESTINATION, 
                 PRONOUN, CONNECTOR, EOFM };
@@ -335,8 +335,58 @@ int main()
       fin >> theword; 
       scanner(thetype, theword);  // call the scanner
 
-       cout << "Type is:" << thetype << endl;
        cout << "Word is:" << theword << endl;   
+       switch (thetype)
+       {
+         case WORD1:
+         cout << "Type is: WORD1" << endl;
+         break;
+         case WORD2:
+         cout << "Type is: WORD2" << endl;
+         break;
+         case PERIOD:
+         cout << "Type is: PERIOD" << endl;
+         break;
+         case ERROR:
+         cout << "Lexical error: " << theword <<" is not a valid token" << endl;
+         break;
+         case VERB:
+         cout << "Type is: VERB" << endl;
+         break;
+         case VERBNEG:
+         cout << "Type is: VERBNEG" << endl;
+         break;
+         case VERBPAST:
+         cout << "Type is: VERBPAST" << endl;
+         break; 
+         case VERBPASTNEG:
+         cout << "Type is: VERBPASTNEG" << endl;
+         break;
+         case IS:
+         cout << "Type is: IS" << endl;
+         break; 
+         case WAS:
+         cout << "Type is: WAS" << endl;
+         break;
+         case OBJECT:
+         cout << "Type is: OBJECT" << endl;
+         break; 
+         case SUBJECT:
+         cout << "Type is: SUBJECT" << endl;
+         break;
+         case DESTINATION:
+         cout << "Type is: DESTINATION" << endl;
+         break;
+         case PRONOUN:
+         cout << "Type is: PRONOUN" << endl;
+         break;
+         case CONNECTOR:
+         cout << "Type is: CONNECTOR" << endl;
+         break;
+         case EOFM:
+         break;
+
+       };
 
        // ** display the actual type instead of a number
 
