@@ -4,11 +4,11 @@ Use this list to create the reserved words list in your scanner.
   
   masu						VERB
   masen						VERBNEG
-  mashita                	 		VERBPAST
-  masendeshita            			VERBPASTNEG
-  desu                    			IS 
-  deshita                 			WAS 
-  o                        			OBJECT
+  mashita         VERBPAST
+  masendeshita    VERBPASTNEG
+  desu            IS 
+  deshita         WAS 
+  o                       			OBJECT
   wa                       			SUBJECT
   ni                       			DESTINATION
 

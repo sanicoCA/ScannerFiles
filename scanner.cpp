@@ -1,6 +1,7 @@
 #include<iostream>
 #include<fstream>
 #include<string>
+#include<vector>
 using namespace std;
 
 //=====================================================
@@ -60,7 +61,7 @@ bool wordToken(string s)
           if(s[pos] == 'a' || tolower(s[pos]) == 'e' || tolower(s[pos]) == 'i' || s[pos] == 'o' || s[pos] == 'u')
             state = "q0qVn";
 	  else if(s[pos] == 'y')
-	    state == "qc";
+	    state = "qc";
 	  else
 	    return false;
 	}
@@ -138,10 +139,124 @@ bool punctuationToken(string s)
 }
 
 // ** Update the tokentype to be WORD1, WORD2, PERIOD and ERROR.
-typedef enum tokentype {ERROR, };
+enum tokentype {WORD1, WORD2, PERIOD, ERROR,
+                VERB,VERBNEG,VERBPAST,VERBPASTNEG,
+                IS,WAS,OBJECT,SUBJECT,DESTINATION, 
+                PRONOUN, CONNECTOR, EOFM };
 
 // ** Need the lexicon to be set up here (to be used in Part C)
 // ** Need the reservedwords list to be set up here
+bool isReserved(string s, tokentype& t)
+{
+  for(int i = 0; i < s.size(); i++)
+  {
+   s[i] = tolower(s[i]);
+  }
+  if(s == "masu")
+  {
+    t = VERB;
+    return true;
+  }
+  else if(s == "masen")
+  {
+    t = VERBNEG;
+    return true;
+  }
+  else if(s == "mashita")
+  {
+    t = VERBPAST;
+    return true;
+  }
+
+  else if(s == "masendeshita")
+  {
+    t = VERBPASTNEG;
+    return true;
+  }
+  else if(s == "desu")
+  {
+    t = IS;
+    return true;
+  }
+  else if(s == "deshita")
+  { 
+    t = WAS;
+    return true;
+  }
+  else if(s == "o")
+  {
+    t = OBJECT;
+    return true;
+  }
+  else if(s == "wa")
+  {
+    t = SUBJECT;
+    return true;
+  }
+  else if(s == "ni")
+  {
+    t = DESTINATION;
+    return true;
+  }
+  else if(s == "watashi")
+  {
+    t = PRONOUN;
+    return true;
+  }
+  else if(s == "anata")
+  {
+    t = PRONOUN;
+    return true;
+  }
+  else if(s == "kare")
+  {
+    t = PRONOUN;
+    return true;
+  }
+  else if(s == "kanojo")
+  {
+    t = PRONOUN;
+    return true;
+  }
+  else if(s == "sore")
+  {
+    t = PRONOUN;
+    return true;
+  }
+  else if(s == "mata")
+  {
+    t = CONNECTOR;
+    return true;
+  }
+  else if(s == "soshite")
+  {
+    t = CONNECTOR;
+    return true;
+  }
+  else if(s == "shikashi")
+  {
+    t = CONNECTOR;
+    return true;
+  }
+  else if(s == "dakara")
+  {
+    t = CONNECTOR;
+    return true;
+  }
+  else if(s == "eofm")
+  {
+    
+    t = EOFM;
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+
+
+  
+}
 // ** Do not require any file input for these.
 // ** a.out should work without any additional files.
 
@@ -152,6 +267,32 @@ int scanner(tokentype& a, string& w)
 
   // ** Grab the next word from the file
 
+  if(punctuationToken(w))
+  a = PERIOD;
+  else if(wordToken(w))
+  {
+    if(isReserved(w,a))
+    {
+      return 1;
+    }
+    else
+    {
+      if(w[w.size()-1] == 'I' | w[w.size()-1] == 'E')
+      {
+        a = WORD2;
+      }
+      else
+      {
+        a = WORD1;
+      }
+    }
+
+  }
+  else
+  {
+    a = ERROR;
+  }
+
   /* 
   2. Call the token functions one after another (if-then-else)
      And generate a lexical error if both DFAs failed.
@@ -160,7 +301,7 @@ int scanner(tokentype& a, string& w)
      If not reserved, token_type is WORD1 or WORD2.
   4. Return the token type & string  (pass by reference)
   */
-
+return 1;
 }//the end
 
 
@@ -171,7 +312,12 @@ int main()
 {
   tokentype thetype;
   string theword; 
+  string thefile;
+  fstream fin;
 
+  cout << "Please Enter the name of the file" << endl;
+  cin >> thefile;
+  fin.open(thefile.c_str());
   /*
 1. get the input file name from the user
 2. open the input file which contains a story written in Japanese (fin.open).
@@ -184,9 +330,9 @@ int main()
           gakkou  WORD1
           etc.
   */
-
-  while (true)
+  while ( theword != "eofm")
     {
+      fin >> theword; 
       scanner(thetype, theword);  // call the scanner
 
        cout << "Type is:" << thetype << endl;
