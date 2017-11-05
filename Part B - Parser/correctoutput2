@@ -1,0 +1,14 @@
+PartBtest2
+Processing <story>
+Processing <s>
+Matched CONNECTOR
+Processing <noun>
+Matched PRONOUN
+Matched SUBJECT
+Processing <s1>
+Processing <noun>
+Matched WORD1
+Processing <s2>
+Processing <be>
+Matched IS
+SYNTAX ERROR: expected PERIOD but found ne
