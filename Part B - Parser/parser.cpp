@@ -10,12 +10,14 @@ using namespace std;
 // File parser.cpp written by Group Number: **
 //=================================================
 
-//These will be used to easily cout the actual token type.
-
-//If tokentype expected is WORD1 or 0, 
-//then    cout << token_type[expected];     
-//will output:  WORD1
-string token_type[] = {"WORD1", "WORD2", "PERIOD", "ERROR","VERB","VERBNEG","VERBPAST","VERBPASTNEG","IS","WAS","OBJECT","SUBJECT","DESTINATION", "PRONOUN", "CONNECTOR", "EOFM" }; 
+/*
+  These will be used to easily print the actual token type name.
+  
+  If tokentype expected is WORD1 or 0, 
+  then    cout << token_type[expected];     
+  will output the string:  WORD1
+*/
+string token_type[] = {"WORD1", "WORD2", "PERIOD", "ERROR", "VERB", "VERBNEG", "VERBPAST", "VERBPASTNEG", "IS", "WAS", "OBJECT", "SUBJECT", "DESTINATION", "PRONOUN", "CONNECTOR", "EOFM"}; 
 
 void noun();
 void verb();
@@ -27,9 +29,11 @@ void s1();
 
 string saved_lexeme; //save the latest read string from file
 tokentype saved_token; //save the latest read token type
-bool token_available = false; //start token_available as false
 
-fstream fin; //so we can read from file in any function
+bool token_available = false; //start token_available as false
+bool traceON; //checks whether trace should be on or off
+
+ofstream fout; //so we can write to file from error functions
 
 // ** Be sure to put the name of the programmer above each function
 // i.e. Done by:
@@ -39,12 +43,16 @@ void syntax_error1(tokentype expected, string lexeme)
 {
   cout << "SYNTAX ERROR: Expected " << token_type[expected] << " but found " << lexeme << "\n\n\n";
 
+  fout << "SYNTAX ERROR: Expected " << token_type[expected] << " but found " << lexeme << "\n\n"; //write to error file
+
   exit(1);
 }
 
 void syntax_error2(string lexeme, string parser_function)
 {
   cout << "SYNTAX ERROR: Unexpected " << lexeme << " found in " << parser_function << "\n\n\n";
+
+  fout << "SYNTAX ERROR: Unexpected " << lexeme << " found in " << parser_function << "\n\n"; //write to error file
 
   exit(1);
 }
@@ -55,15 +63,14 @@ tokentype next_token()
   string lexeme;
 
   if (!token_available)// if there is no saved token from previous lookahead
-    { 
-      fin >> lexeme; //read next string from file
-      
+    {       
       scanner(saved_token, lexeme);// call scanner to grab a new token
       token_available = true;      // mark that fact that you have saved it
       
-      saved_lexeme = lexeme; //update saved_lexeme
+      saved_lexeme = lexeme; //update saved_lexeme with latest string from file
       
-      cout << "Scanner was called..." << endl; 
+      if(traceON)
+	cout << "Scanner was called..." << endl; 
     }
 
   return saved_token; // return the saved token
@@ -90,19 +97,32 @@ bool match(tokentype expected)
 // ** Make each non-terminal into a function here
 // ** Be sure to put the corresponding grammar rule above each function
 // ** Done by: 
+//<story>::= <s1>{<s1>}
 void story()
 {
-  do
+  while(true)
     {
-      cout << "\n========== Processing <story> ==========" << endl;
-      s1();
-
-    }while(next_token() != EOFM);  
+      switch(next_token())
+	{
+	case CONNECTOR:
+	case WORD1:
+	case PRONOUN:
+	  cout << endl;
+	  if(traceON) //if trace is off, skip these cout's
+	    cout << "========== Processing <story> ==========" << endl;
+	  s1();
+	  break;
+	default:
+	  return;
+	}
+    }
 }
 
+//<s1>::= [CONNECTOR]<noun>SUBJECT<s2>
 void s1()
 {
-  cout << "Processing <s1>" << endl;
+  if(traceON)
+    cout << "Processing <s1>" << endl;
 
   if(next_token() == CONNECTOR)
     match(CONNECTOR);
@@ -117,135 +137,162 @@ void s1()
   s2();
 }
 
+//<s2>::= <verb><tense>PERIOD | <noun><s3>
 void s2()
 {
-  cout << "Processing <s2>" << endl;
+  if(traceON)
+    cout << "Processing <s2>" << endl;
   
-  if(next_token() == WORD2)// <verb>
-    {    
-      verb();
-
-      tense();
-
-      if(next_token() == PERIOD)
-	match(PERIOD);
-      else
-	syntax_error1(PERIOD, saved_lexeme);
-    }
-
-  else
+  switch(next_token())
     {
-      noun();
+    case WORD2:
+      verb();
+      tense();
+      if(next_token() == PERIOD)
+        match(PERIOD);
+      else
+        syntax_error1(PERIOD, saved_lexeme);
+      break;
 
+    case WORD1:
+    case PRONOUN:
+      noun();
       s3();
+      break;
+
+    default:
+      syntax_error2(saved_lexeme, "s2");
     }
 }
 
+//<s3>::= <be>PERIOD | DESTINATION<verb><tense>PERIOD | OBJECT[<noun>DESTINATION]<verb><tense>PERIOD
 void s3()
 {
-  cout << "Processing <s3>" << endl;
+  if(traceON)
+    cout << "Processing <s3>" << endl;
 
-  if(next_token() == IS || next_token() == WAS)
+  switch(next_token())
     {
-      be();
-
+    case IS:
+    case WAS:
+      be();      
       if(next_token() == PERIOD)
         match(PERIOD);
       else
         syntax_error1(PERIOD, saved_lexeme);
-    }
+      break;
 
-  else if(next_token() == DESTINATION)
-    {
+    case DESTINATION:
       match(DESTINATION);
-
       verb();
-
       tense();
-
       if(next_token() == PERIOD)
         match(PERIOD);
       else
         syntax_error1(PERIOD, saved_lexeme);
-    }
+      break;
 
-  else if(next_token() == OBJECT)
-    {
+
+    case OBJECT:
       match(OBJECT);
-
       if(next_token() == WORD1 || next_token() == PRONOUN)
-	{
-	  noun();
-
-	  if(next_token() == DESTINATION)
-	    match(DESTINATION);
-	  else
-	    syntax_error1(DESTINATION, saved_lexeme);
-	}
-
+        {
+          noun();
+          if(next_token() == DESTINATION)
+            match(DESTINATION);
+          else
+            syntax_error1(DESTINATION, saved_lexeme);
+        }
       verb();
-
       tense();
-
       if(next_token() == PERIOD)
         match(PERIOD);
       else
         syntax_error1(PERIOD, saved_lexeme);
-    }
-  else
-    {
+      break;
+
+    default:
       syntax_error2(saved_lexeme, "s3");
-    }
+    }     
 }
 
+//<noun>::= WORD1 | PRONOUN
 void noun()
 {
-  cout << "Processing <noun>" << endl;
+  if(traceON)
+    cout << "Processing <noun>" << endl;
 
-  if(next_token() == WORD1)
-    match(WORD1);
-  else if(next_token() == PRONOUN)
-    match(PRONOUN);
-  else
-    syntax_error2(saved_lexeme, "noun");
+  switch(next_token())
+    {
+    case WORD1:
+      match(WORD1);
+      break;
+    case PRONOUN:
+      match(PRONOUN);
+      break;
+    default:
+      syntax_error2(saved_lexeme, "noun");
+    }
 }
 
+//<verb>::= WORD2
 void verb()
 {
-  cout << "Processing <verb>" << endl;
+  if(traceON)
+    cout << "Processing <verb>" << endl;
 
-  if(next_token() == WORD2)
-    match(WORD2);
-  else
-    syntax_error2(saved_lexeme, "verb");
+  switch(next_token())
+    {
+    case WORD2:
+      match(WORD2);
+      break;
+    default:
+      syntax_error2(saved_lexeme, "verb");
+    }
 }
 
+//<be>::= IS | WAS
 void be()
 {
-  cout << "Processing <be>" << endl;
+  if(traceON)
+    cout << "Processing <be>" << endl;
 
-  if(next_token() == IS)
-    match(IS);
-  else if(next_token() == WAS)
-    match(WAS);
-  else
-    syntax_error2(saved_lexeme, "be");
+  switch(next_token())
+    {
+    case IS:
+      match(IS);
+      break;
+    case WAS:
+      match(WAS);      
+      break;
+    default:
+      syntax_error2(saved_lexeme, "be");
+    }
 }
 
+//<tense>::= VERBPAST | VERBPASTNEG | VERB | VERBNEG
 void tense()
 {
-  cout << "Processing <tense>" << endl;
+  if(traceON)
+    cout << "Processing <tense>" << endl;
 
-  if(next_token() == VERBPAST)
-    match(VERBPAST);
-  else if(next_token() == VERBPASTNEG)
-    match(VERBPASTNEG);
-  else if(next_token() == VERB)
-    match(VERB);
-  else if(next_token() == VERBNEG)
-    match(VERBNEG);
-  else
-    syntax_error2(saved_lexeme, "tense");
+  switch(next_token())
+    {
+    case VERBPAST:
+      match(VERBPAST);
+      break;
+    case VERBPASTNEG: 
+      match(VERBPASTNEG);
+      break;
+    case VERB:
+      match(VERB);
+      break;
+    case VERBNEG:
+      match(VERBNEG);
+      break;
+    default:
+      syntax_error2(saved_lexeme, "tense");
+    }
 }
 
 // The test driver to start the parser
@@ -256,15 +303,36 @@ int main()
   //- calls the <story> to start parsing
   //- closes the input file  
   string thefile;
+  char traceDecision;
 
   cout << "Please enter the name of the file: " << endl;
   cin >> thefile;
 
-  fin.open(thefile.c_str());
+  //loop until a proper answer is given
+  while(traceDecision != 'y' && traceDecision != 'n')
+    {
+      cout << "Do you want trace on? (y or n): ";
+      cin >> traceDecision;
+     
+      if(traceDecision == 'y')
+	traceON = true;
+      else if(traceDecision == 'n')
+	traceON = false;
+    }
 
-  story();
+  fin.open(thefile.c_str());
+  /*
+    Open file to write errors.
+
+    New errors will be added to the end of the file
+    instead of overwriting what was previously written.
+  */
+  fout.open("errors.txt", ios::out | ios::app); 
+
+  story(); //call story() to start parsing
 
   fin.close();
+  fout.close();
 
   return 0;
 }// end
