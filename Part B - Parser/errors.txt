@@ -1,0 +1,14 @@
+SYNTAX ERROR: Expected PERIOD but found ne
+
+SYNTAX ERROR: Expected SUBJECT but found de
+
+SYNTAX ERROR: Unexpected mashita found in s3
+
+SYNTAX ERROR: Unexpected wa found in noun
+
+SYNTAX ERROR: Unexpected apple found in noun
+
+SYNTAX ERROR: Expected PERIOD but found ne
+
+SYNTAX ERROR: Expected PERIOD but found ne
+

@@ -1,0 +1,266 @@
+Script started on Wed 15 Nov 2017 02:01:06 PM PST
+]0;marti545@empress:~/cs421/CS421Progs/ParserFiles[marti545@empress ParserFiles]$ g++ parser.cpp -o group4parser.cpp[K[K[Kout
+]0;marti545@empress:~/cs421/CS421Progs/ParserFiles[marti545@empress ParserFiles]$ ./a[Kgroup4parser.out
+Please enter the name of the file: 
+partBtest1
+Do you want trace on? (y or n): y
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+Processing <noun>
+Matched PRONOUN
+Scanner was called...
+Matched SUBJECT
+Processing <s2>
+Scanner was called...
+Processing <noun>
+Matched WORD1
+Processing <s3>
+Scanner was called...
+Processing <be>
+Matched IS
+Scanner was called...
+Matched PERIOD
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+Processing <noun>
+Matched PRONOUN
+Scanner was called...
+Matched SUBJECT
+Processing <s2>
+Scanner was called...
+Processing <noun>
+Matched WORD1
+Processing <s3>
+Scanner was called...
+Processing <be>
+Matched IS
+Scanner was called...
+Matched PERIOD
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+Processing <noun>
+Matched WORD1
+Scanner was called...
+Matched SUBJECT
+Processing <s2>
+Scanner was called...
+Processing <noun>
+Matched WORD1
+Processing <s3>
+Scanner was called...
+Matched OBJECT
+Scanner was called...
+Processing <verb>
+Matched WORD2
+Processing <tense>
+Scanner was called...
+Matched VERB
+Scanner was called...
+Matched PERIOD
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+Processing <noun>
+Matched PRONOUN
+Scanner was called...
+Matched SUBJECT
+Processing <s2>
+Scanner was called...
+Processing <noun>
+Matched WORD1
+Processing <s3>
+Scanner was called...
+Matched OBJECT
+Scanner was called...
+Processing <noun>
+Matched WORD1
+Scanner was called...
+Matched DESTINATION
+Processing <verb>
+Scanner was called...
+Matched WORD2
+Processing <tense>
+Scanner was called...
+Matched VERBPAST
+Scanner was called...
+Matched PERIOD
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+Matched CONNECTOR
+Processing <noun>
+Scanner was called...
+Matched WORD1
+Scanner was called...
+Matched SUBJECT
+Processing <s2>
+Scanner was called...
+Processing <verb>
+Matched WORD2
+Processing <tense>
+Scanner was called...
+Matched VERBPASTNEG
+Scanner was called...
+Matched PERIOD
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+Matched CONNECTOR
+Processing <noun>
+Scanner was called...
+Matched PRONOUN
+Scanner was called...
+Matched SUBJECT
+Processing <s2>
+Scanner was called...
+Processing <noun>
+Matched WORD1
+Processing <s3>
+Scanner was called...
+Processing <be>
+Matched WAS
+Scanner was called...
+Matched PERIOD
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+Matched CONNECTOR
+Processing <noun>
+Scanner was called...
+Matched WORD1
+Scanner was called...
+Matched SUBJECT
+Processing <s2>
+Scanner was called...
+Processing <noun>
+Matched WORD1
+Processing <s3>
+Scanner was called...
+Matched DESTINATION
+Processing <verb>
+Scanner was called...
+Matched WORD2
+Processing <tense>
+Scanner was called...
+Matched VERBPAST
+Scanner was called...
+Matched PERIOD
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+Processing <noun>
+Matched WORD1
+Scanner was called...
+Matched SUBJECT
+Processing <s2>
+Scanner was called...
+Processing <verb>
+Matched WORD2
+Processing <tense>
+Scanner was called...
+Matched VERBPAST
+Scanner was called...
+Matched PERIOD
+Scanner was called...
+]0;marti545@empress:~/cs421/CS421Progs/ParserFiles[marti545@empress ParserFiles]$ ./group4parser.out
+Please enter the name of the file: 
+partBtest2
+Do you want trace on? (y or n): y
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+Matched CONNECTOR
+Processing <noun>
+Scanner was called...
+Matched PRONOUN
+Scanner was called...
+Matched SUBJECT
+Processing <s2>
+Scanner was called...
+Processing <noun>
+Matched WORD1
+Processing <s3>
+Scanner was called...
+Processing <be>
+Matched IS
+Scanner was called...
+SYNTAX ERROR: Expected PERIOD but found ne
+
+
+]0;marti545@empress:~/cs421/CS421Progs/ParserFiles[marti545@empress ParserFiles]$ ./group4parser.out
+Please enter the name of the file: 
+partBtest3
+Do you want trace on? (y or n): y
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+Matched CONNECTOR
+Processing <noun>
+Scanner was called...
+Matched PRONOUN
+Scanner was called...
+SYNTAX ERROR: Expected SUBJECT but found de
+
+
+]0;marti545@empress:~/cs421/CS421Progs/ParserFiles[marti545@empress ParserFiles]$ ./group4parser.out
+Please enter the name of the file: 
+partBtest4
+Do you want trace on? (y or n): y
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+Processing <noun>
+Matched PRONOUN
+Scanner was called...
+Matched SUBJECT
+Processing <s2>
+Scanner was called...
+Processing <noun>
+Matched WORD1
+Processing <s3>
+Scanner was called...
+SYNTAX ERROR: Unexpected mashita found in s3
+
+
+]0;marti545@empress:~/cs421/CS421Progs/ParserFiles[marti545@empress ParserFiles]$ ./group4parser.out
+Please enter the name of the file: 
+partBtest5
+Do you want trace on? (y or n): y
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+Processing <noun>
+SYNTAX ERROR: Unexpected wa found in noun
+
+
+]0;marti545@empress:~/cs421/CS421Progs/ParserFiles[marti545@empress ParserFiles]$ ./group4parser.out
+Please enter the name of the file: 
+partBtest6
+Do you want trace on? (y or n): y
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+Processing <noun>
+SYNTAX ERROR: Unexpected apple found in noun
+
+
+]0;marti545@empress:~/cs421/CS421Progs/ParserFiles[marti545@empress ParserFiles]$ exit
+exit
+
+Script done on Wed 15 Nov 2017 02:02:52 PM PST
