@@ -4,6 +4,8 @@
 #include<vector>
 using namespace std;
 
+fstream fin; //so we can read from file in any function
+
 //=====================================================
 // File scanner.cpp written by: Group Number: ** 
 //=====================================================
@@ -260,8 +262,9 @@ bool isReserved(string s, tokentype& t)
 // ** Done by: 
 int scanner(tokentype& a, string& w)
 {
-
   // ** Grab the next word from the file
+  fin >> w; //read next string from file
+
 
   if(punctuationToken(w))
     a = PERIOD;
