@@ -13,8 +13,9 @@ using namespace std;
 /*
   These will be used to easily print the actual token type name.
   
-  If tokentype expected is WORD1 or 0, 
-  then    cout << token_type[expected];     
+  If tokentype expected is WORD1, or it's actual value 0, 
+  then    
+  cout << token_type[expected];     
   will output the string:  WORD1
 */
 string token_type[] = {"WORD1", "WORD2", "PERIOD", "ERROR", "VERB", "VERBNEG", "VERBPAST", "VERBPASTNEG", "IS", "WAS", "OBJECT", "SUBJECT", "DESTINATION", "PRONOUN", "CONNECTOR", "EOFM"}; 
@@ -30,6 +31,8 @@ void s1();
 string saved_lexeme; //save the latest read string from file
 tokentype saved_token; //save the latest read token type
 
+string thefile; //name of file being read
+
 bool token_available = false; //start token_available as false
 bool traceON; //checks whether trace should be on or off
 
@@ -43,6 +46,8 @@ void syntax_error1(tokentype expected, string lexeme)
 {
   cout << "SYNTAX ERROR: Expected " << token_type[expected] << " but found " << lexeme << "\n\n\n";
 
+  fout << "In file " << thefile << ":" << endl; //write the name of the file opened to the error file
+
   fout << "SYNTAX ERROR: Expected " << token_type[expected] << " but found " << lexeme << "\n\n"; //write to error file
 
   exit(1);
@@ -51,6 +56,8 @@ void syntax_error1(tokentype expected, string lexeme)
 void syntax_error2(string lexeme, string parser_function)
 {
   cout << "SYNTAX ERROR: Unexpected " << lexeme << " found in " << parser_function << "\n\n\n";
+
+  fout << "In file " << thefile << ":" << endl; //write the name of the file opened to the error file
 
   fout << "SYNTAX ERROR: Unexpected " << lexeme << " found in " << parser_function << "\n\n"; //write to error file
 
@@ -62,7 +69,7 @@ tokentype next_token()
 {  
   string lexeme;
 
-  if (!token_available)// if there is no saved token from previous lookahead
+  if(!token_available)// if there is no saved token from previous lookahead
     {       
       scanner(saved_token, lexeme);// call scanner to grab a new token
       token_available = true;      // mark that fact that you have saved it
@@ -78,7 +85,7 @@ tokentype next_token()
 
 bool match(tokentype expected)
 {
-  if (next_token() != expected)//mismatch has occurred with the next token
+  if(next_token() != expected)//mismatch has occurred with the next token
     { 
       // generate a syntax error message here
       // do error handling here if any
@@ -104,16 +111,14 @@ void story()
     {
       switch(next_token())
 	{
-	case CONNECTOR:
-	case WORD1:
-	case PRONOUN:
-	  cout << endl;
-	  if(traceON) //if trace is off, skip these cout's
-	    cout << "========== Processing <story> ==========" << endl;
-	  s1();
-	  break;
-	default:
+	case EOFM:
 	  return;
+	default:
+	  cout << endl;
+          if(traceON) //if trace is off, skip these cout's
+            cout << "========== Processing <story> ==========" << endl;
+          s1();
+          break;
 	}
     }
 }
@@ -302,7 +307,8 @@ int main()
   //- opens the input file
   //- calls the <story> to start parsing
   //- closes the input file  
-  string thefile;
+
+  //  string thefile;
   char traceDecision;
 
   cout << "Please enter the name of the file: " << endl;

@@ -12,3 +12,18 @@ SYNTAX ERROR: Expected PERIOD but found ne
 
 SYNTAX ERROR: Expected PERIOD but found ne
 
+In file partBtest6:
+SYNTAX ERROR: Unexpected apple found in noun
+
+In file partBtest5:
+SYNTAX ERROR: Unexpected wa found in noun
+
+In file partBtest4:
+SYNTAX ERROR: Unexpected mashita found in s3
+
+In file partBtest3:
+SYNTAX ERROR: Expected SUBJECT but found de
+
+In file partBtest2:
+SYNTAX ERROR: Expected PERIOD but found ne
+
