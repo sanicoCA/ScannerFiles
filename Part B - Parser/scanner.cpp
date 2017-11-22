@@ -296,6 +296,8 @@ int scanner(tokentype& a, string& w)
       a = ERROR;
     }
 
+
+
   /* 
   2. Call the token functions one after another (if-then-else)
      And generate a lexical error if both DFAs failed.

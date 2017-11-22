@@ -24,8 +24,8 @@ void noun();
 void verb();
 void be();
 void tense();
-void s3();
-void s2();
+void afterNOUN();
+void afterSUBJECT();
 void s1();
 
 string saved_lexeme; //save the latest read string from file
@@ -78,6 +78,14 @@ tokentype next_token()
       
       if(traceON)
 	cout << "Scanner was called..." << endl; 
+
+      if(saved_token == ERROR) //if the string is an ERROR, then exit
+	{
+	  cout << "LEXICAL ERROR: " << lexeme << " is not a PERIOD or WORD.\n\n\n";
+	  fout << "In file " << thefile << ":" << endl; //write the name of the file opened to the error file
+	  fout << "LEXICAL ERROR: " << lexeme << " is not a PERIOD or WORD.\n\n";
+	  exit(1);
+	}
     }
 
   return saved_token; // return the saved token
@@ -123,7 +131,7 @@ void story()
     }
 }
 
-//<s1>::= [CONNECTOR]<noun>SUBJECT<s2>
+//<s1>::= [CONNECTOR]<noun>SUBJECT<afterSUBJECT>
 void s1()
 {
   if(traceON)
@@ -139,14 +147,14 @@ void s1()
   else 
     syntax_error1(SUBJECT, saved_lexeme);
 
-  s2();
+  afterSUBJECT();
 }
 
-//<s2>::= <verb><tense>PERIOD | <noun><s3>
-void s2()
+//<afterSUBJECT>::= <verb><tense>PERIOD | <noun><afterNOUN>
+void afterSUBJECT()
 {
   if(traceON)
-    cout << "Processing <s2>" << endl;
+    cout << "Processing <afterSUBJECT>" << endl;
   
   switch(next_token())
     {
@@ -162,19 +170,19 @@ void s2()
     case WORD1:
     case PRONOUN:
       noun();
-      s3();
+      afterNOUN();
       break;
 
     default:
-      syntax_error2(saved_lexeme, "s2");
+      syntax_error2(saved_lexeme, "afterSUBJECT");
     }
 }
 
-//<s3>::= <be>PERIOD | DESTINATION<verb><tense>PERIOD | OBJECT[<noun>DESTINATION]<verb><tense>PERIOD
-void s3()
+//<finalTokens>::= <be>PERIOD | DESTINATION<verb><tense>PERIOD | OBJECT[<noun>DESTINATION]<verb><tense>PERIOD
+void afterNOUN()
 {
   if(traceON)
-    cout << "Processing <s3>" << endl;
+    cout << "Processing <afterNOUN>" << endl;
 
   switch(next_token())
     {
@@ -217,7 +225,7 @@ void s3()
       break;
 
     default:
-      syntax_error2(saved_lexeme, "s3");
+      syntax_error2(saved_lexeme, "afterNOUN");
     }     
 }
 
@@ -339,6 +347,8 @@ int main()
 
   fin.close();
   fout.close();
+
+  cout << "\n\n";
 
   return 0;
 }// end
