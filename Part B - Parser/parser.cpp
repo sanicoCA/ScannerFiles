@@ -81,9 +81,9 @@ tokentype next_token()
 
       if(saved_token == ERROR) //if the string is an ERROR, then exit
 	{
-	  cout << "LEXICAL ERROR: " << lexeme << " is not a PERIOD or WORD.\n\n\n";
+	  cout << "LEXICAL ERROR: " << lexeme << " is not in the language.\n\n\n";
 	  fout << "In file " << thefile << ":" << endl; //write the name of the file opened to the error file
-	  fout << "LEXICAL ERROR: " << lexeme << " is not a PERIOD or WORD.\n\n";
+	  fout << "LEXICAL ERROR: " << lexeme << " is not in the language.\n\n";
 	  exit(1);
 	}
     }
