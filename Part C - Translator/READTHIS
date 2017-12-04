@@ -1,0 +1,10 @@
+
+translator.cpp indicates what you need to add to the parser.cpp
+
+Make a copy of parser.cpp and do the additions.
+
+Use the partBtest cases (the same ones as before)
+
+test1results gives you what you should get as the result of
+partBtest1
+

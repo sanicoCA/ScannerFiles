@@ -1,0 +1,3 @@
+In file partBtest2:
+SYNTAX ERROR: Expected PERIOD but found ne
+
