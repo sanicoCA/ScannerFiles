@@ -1,0 +1,300 @@
+Script started on Wed 06 Dec 2017 04:04:57 PM PST
+]0;marti545@empress:~/cs421/CS421Progs/TranslatorFiles[marti545@empress TranslatorFiles]$ ./group4.out
+Please enter the name of the file: 
+partBtest1
+Do you want trace on? (y or n): y
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+Processing <noun>
+[32mMatched PRONOUN[0m
+Scanner was called...
+[32mMatched SUBJECT[0m
+[36mACTOR: I/me[0m
+Processing <afterSUBJECT>
+Scanner was called...
+Processing <noun>
+[32mMatched WORD1[0m
+Processing <afterNOUN>
+Scanner was called...
+Processing <be>
+[32mMatched IS[0m
+[36mDESCRIPTION: rika
+[36mTENSE: IS[0m
+Scanner was called...
+[32mMatched PERIOD[0m
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+Processing <noun>
+[32mMatched PRONOUN[0m
+Scanner was called...
+[32mMatched SUBJECT[0m
+[36mACTOR: I/me[0m
+Processing <afterSUBJECT>
+Scanner was called...
+Processing <noun>
+[32mMatched WORD1[0m
+Processing <afterNOUN>
+Scanner was called...
+Processing <be>
+[32mMatched IS[0m
+[36mDESCRIPTION: sensei
+[36mTENSE: IS[0m
+Scanner was called...
+[32mMatched PERIOD[0m
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+Processing <noun>
+[32mMatched WORD1[0m
+Scanner was called...
+[32mMatched SUBJECT[0m
+[36mACTOR: rika[0m
+Processing <afterSUBJECT>
+Scanner was called...
+Processing <noun>
+[32mMatched WORD1[0m
+Processing <afterNOUN>
+Scanner was called...
+[32mMatched OBJECT[0m
+[36mOBJECT: gohan[0m
+Scanner was called...
+Processing <verb>
+[32mMatched WORD2[0m
+[36mACTION: tabE[0m
+Processing <tense>
+Scanner was called...
+[32mMatched VERB[0m
+[36mTENSE: VERB[0m
+Scanner was called...
+[32mMatched PERIOD[0m
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+Processing <noun>
+[32mMatched PRONOUN[0m
+Scanner was called...
+[32mMatched SUBJECT[0m
+[36mACTOR: I/me[0m
+Processing <afterSUBJECT>
+Scanner was called...
+Processing <noun>
+[32mMatched WORD1[0m
+Processing <afterNOUN>
+Scanner was called...
+[32mMatched OBJECT[0m
+[36mOBJECT: tesuto[0m
+Scanner was called...
+Processing <noun>
+[32mMatched WORD1[0m
+Scanner was called...
+[32mMatched DESTINATION[0m
+[36mTO: seito[0m
+Processing <verb>
+Scanner was called...
+[32mMatched WORD2[0m
+[36mACTION: agE[0m
+Processing <tense>
+Scanner was called...
+[32mMatched VERBPAST[0m
+[36mTENSE: VERBPAST[0m
+Scanner was called...
+[32mMatched PERIOD[0m
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+[32mMatched CONNECTOR[0m
+[36mCONNECTOR: However[0m
+Processing <noun>
+Scanner was called...
+[32mMatched WORD1[0m
+Scanner was called...
+[32mMatched SUBJECT[0m
+[36mACTOR: seito[0m
+Processing <afterSUBJECT>
+Scanner was called...
+Processing <verb>
+[32mMatched WORD2[0m
+[36mACTION: yorokobI[0m
+Processing <tense>
+Scanner was called...
+[32mMatched VERBPASTNEG[0m
+[36mTENSE: VERBPASTNEG[0m
+Scanner was called...
+[32mMatched PERIOD[0m
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+[32mMatched CONNECTOR[0m
+[36mCONNECTOR: Therefore[0m
+Processing <noun>
+Scanner was called...
+[32mMatched PRONOUN[0m
+Scanner was called...
+[32mMatched SUBJECT[0m
+[36mACTOR: I/me[0m
+Processing <afterSUBJECT>
+Scanner was called...
+Processing <noun>
+[32mMatched WORD1[0m
+Processing <afterNOUN>
+Scanner was called...
+Processing <be>
+[32mMatched WAS[0m
+[36mDESCRIPTION: kanashii
+[36mTENSE: WAS[0m
+Scanner was called...
+[32mMatched PERIOD[0m
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+[32mMatched CONNECTOR[0m
+[36mCONNECTOR: Then[0m
+Processing <noun>
+Scanner was called...
+[32mMatched WORD1[0m
+Scanner was called...
+[32mMatched SUBJECT[0m
+[36mACTOR: rika[0m
+Processing <afterSUBJECT>
+Scanner was called...
+Processing <noun>
+[32mMatched WORD1[0m
+Processing <afterNOUN>
+Scanner was called...
+[32mMatched DESTINATION[0m
+[36mTO: toire[0m
+Processing <verb>
+Scanner was called...
+[32mMatched WORD2[0m
+[36mACTION: ikI[0m
+Processing <tense>
+Scanner was called...
+[32mMatched VERBPAST[0m
+[36mTENSE: VERBPAST[0m
+Scanner was called...
+[32mMatched PERIOD[0m
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+Processing <noun>
+[32mMatched WORD1[0m
+Scanner was called...
+[32mMatched SUBJECT[0m
+[36mACTOR: rika[0m
+Processing <afterSUBJECT>
+Scanner was called...
+Processing <verb>
+[32mMatched WORD2[0m
+[36mACTION: nakI[0m
+Processing <tense>
+Scanner was called...
+[32mMatched VERBPAST[0m
+[36mTENSE: VERBPAST[0m
+Scanner was called...
+[32mMatched PERIOD[0m
+Scanner was called...
+
+
+]0;marti545@empress:~/cs421/CS421Progs/TranslatorFiles[marti545@empress TranslatorFiles]$ ./group4.out
+Please enter the name of the file: 
+partBtest2
+Do you want trace on? (y or n): y
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+[32mMatched CONNECTOR[0m
+[36mCONNECTOR: Then[0m
+Processing <noun>
+Scanner was called...
+[32mMatched PRONOUN[0m
+Scanner was called...
+[32mMatched SUBJECT[0m
+[36mACTOR: I/me[0m
+Processing <afterSUBJECT>
+Scanner was called...
+Processing <noun>
+[32mMatched WORD1[0m
+Processing <afterNOUN>
+Scanner was called...
+Processing <be>
+[32mMatched IS[0m
+[36mDESCRIPTION: rika
+[36mTENSE: IS[0m
+Scanner was called...
+SYNTAX ERROR: Expected PERIOD but found ne
+
+
+]0;marti545@empress:~/cs421/CS421Progs/TranslatorFiles[marti545@empress TranslatorFiles]$ ./group4.out
+Please enter the name of the file: 
+partBtest3
+Do you want trace on? (y or n): y
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+[32mMatched CONNECTOR[0m
+[36mCONNECTOR: Therefore[0m
+Processing <noun>
+Scanner was called...
+[32mMatched PRONOUN[0m
+Scanner was called...
+SYNTAX ERROR: Expected SUBJECT but found de
+
+
+]0;marti545@empress:~/cs421/CS421Progs/TranslatorFiles[marti545@empress TranslatorFiles]$ ./group4.out
+Please enter the name of the file: 
+partBtest4
+Do you want trace on? (y or n): y
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+Processing <noun>
+[32mMatched PRONOUN[0m
+Scanner was called...
+[32mMatched SUBJECT[0m
+[36mACTOR: I/me[0m
+Processing <afterSUBJECT>
+Scanner was called...
+Processing <noun>
+[32mMatched WORD1[0m
+Processing <afterNOUN>
+Scanner was called...
+SYNTAX ERROR: Unexpected mashita found in afterNOUN
+
+
+]0;marti545@empress:~/cs421/CS421Progs/TranslatorFiles[marti545@empress TranslatorFiles]$ ./group4.out
+Please enter the name of the file: 
+partBtest5
+Do you want trace on? (y or n): y
+Scanner was called...
+
+========== Processing <story> ==========
+Processing <s1>
+Processing <noun>
+SYNTAX ERROR: Unexpected wa found in noun
+
+
+]0;marti545@empress:~/cs421/CS421Progs/TranslatorFiles[marti545@empress TranslatorFiles]$ ./group4.out
+Please enter the name of the file: 
+partBtest6
+Do you want trace on? (y or n): y
+Scanner was called...
+LEXICAL ERROR: apple is not in the language.
+
+
+]0;marti545@empress:~/cs421/CS421Progs/TranslatorFiles[marti545@empress TranslatorFiles]$ exit
+exit
+
+Script done on Wed 06 Dec 2017 04:05:57 PM PST

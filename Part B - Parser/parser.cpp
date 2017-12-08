@@ -42,6 +42,7 @@ ofstream fout; //so we can write to file from error functions
 // i.e. Done by:
 
 // ** Need syntaxerror1 and syntaxerror2 functions (each takes 2 args)
+// ** Done by: Efren
 void syntax_error1(tokentype expected, string lexeme)
 {
   cout << "SYNTAX ERROR: Expected " << token_type[expected] << " but found " << lexeme << "\n\n\n";
@@ -65,6 +66,7 @@ void syntax_error2(string lexeme, string parser_function)
 }
 
 // ** Need the updated match and next_token (with 2 global vars)
+// ** Done by: Chris
 tokentype next_token()
 {  
   string lexeme;
@@ -111,7 +113,7 @@ bool match(tokentype expected)
 
 // ** Make each non-terminal into a function here
 // ** Be sure to put the corresponding grammar rule above each function
-// ** Done by: 
+// ** Done by: Chris, Jason, Efren
 //<story>::= <s1>{<s1>}
 void story()
 {
@@ -309,7 +311,7 @@ void tense()
 }
 
 // The test driver to start the parser
-// Done by:  **
+// Done by:  Jason
 int main()
 {
   //- opens the input file

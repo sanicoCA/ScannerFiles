@@ -146,6 +146,7 @@ typedef enum tokentype {WORD1, WORD2, PERIOD, ERROR,
 
 // ** Need the lexicon to be set up here (to be used in Part C)
 // ** Need the reservedwords list to be set up here
+// ** Done by: Jason and Chris
 bool isReserved(string s, tokentype& t)
 {
   for(int i = 0; i < s.size(); i++)
@@ -261,7 +262,7 @@ bool isReserved(string s, tokentype& t)
 // ** a.out should work without any additional files.
 
 // Scanner processes only one word each time it is called
-// ** Done by: 
+// ** Done by: Jason
 int scanner(tokentype& a, string& w)
 {
 
@@ -307,7 +308,7 @@ return 1;
 
 
 // The test driver to call the scanner repeatedly  
-// ** Done by:  **
+// ** Done by:  Chris
 int main()
 {
   tokentype thetype;

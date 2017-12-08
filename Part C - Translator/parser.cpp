@@ -7,7 +7,7 @@
 #include "scanner.cpp"
 using namespace std;
 
-//COLORS
+//COLOR CODES
 #define RESET   "\033[0m"
 #define CYAN    "\033[36m"      /* Cyan */
 #define GREEN   "\033[32m"      /* Green */
@@ -37,7 +37,6 @@ void s1();
 string saved_lexeme; //save the latest read string from file
 tokentype saved_token; //save the latest read token type
 string saved_E_word; //saved english word for part C
-//int typeOfGen; //will hold what type of gen message should be generated
 
 string thefile; //name of file being read
 
@@ -45,6 +44,7 @@ bool token_available = false; //start token_available as false
 bool traceON; //checks whether trace should be on or off
 
 ofstream fout; //so we can write to file from error functions
+ofstream trs; //write to translated.txt file
 
 // ** Be sure to put the name of the programmer above each function
 // i.e. Done by:
@@ -55,23 +55,26 @@ void getEword()
   // cout << "English: " << saved_E_word << endl;
 }
 
+//output onscreen and to translated.txt file
 void gen(string name, int typeOf)
 {
-  int set1 = 11;
-
   switch(typeOf)
     {
     case 1:
       cout << CYAN << name << ": " << saved_E_word << RESET << endl;
+      trs << name << ": " << saved_E_word << endl;
       break;
 
     case 2:
       cout << CYAN << name << ": " << token_type[saved_token] << RESET << endl;
+      trs << name << ": " << token_type[saved_token] << endl;
       break;
 
     case 3:
       cout << CYAN << name << ": " << saved_E_word << endl;
       cout << CYAN << "TENSE" << ": " << token_type[saved_token] << RESET << endl;
+      trs << name << ": " << saved_E_word << endl;
+      trs << "TENSE: " << token_type[saved_token] << endl;
       break;
     }
 }
@@ -119,7 +122,7 @@ tokentype next_token()
 	  cout << "LEXICAL ERROR: " << lexeme << " is not in the language.\n\n\n";
 	  fout << "In file " << thefile << ":" << endl; //write the name of the file opened to the error file
 	  fout << "LEXICAL ERROR: " << lexeme << " is not in the language.\n\n";
-	  exit(1);
+	  //	  exit(1);
 	}
     }
 
@@ -208,7 +211,10 @@ void afterSUBJECT()
       tense();
       gen("TENSE", 2);
       if(next_token() == PERIOD)
-        match(PERIOD);
+	{
+	  match(PERIOD);
+	  trs << endl;
+	}
       else
         syntax_error1(PERIOD, saved_lexeme);
       break;
@@ -238,7 +244,10 @@ void afterNOUN()
       be();      
       gen("DESCRIPTION", 3);
       if(next_token() == PERIOD)
-        match(PERIOD);
+	{
+	  match(PERIOD);
+	  trs << endl;
+	}
       else
         syntax_error1(PERIOD, saved_lexeme);
       break;
@@ -252,7 +261,10 @@ void afterNOUN()
       tense();
       gen("TENSE", 2);
       if(next_token() == PERIOD)
-        match(PERIOD);
+	{
+	  match(PERIOD);
+	  trs << endl;
+	}      
       else
         syntax_error1(PERIOD, saved_lexeme);
       break;
@@ -279,7 +291,10 @@ void afterNOUN()
       tense();
       gen("TENSE", 2);
       if(next_token() == PERIOD)
-        match(PERIOD);
+	{
+	  match(PERIOD);
+	  trs << endl; 
+	}
       else
         syntax_error1(PERIOD, saved_lexeme);
       break;
@@ -401,12 +416,14 @@ int main()
     New errors will be added to the end of the file
     instead of overwriting what was previously written.
   */
-  fout.open("errors.txt", ios::out | ios::app); 
+  fout.open("errors.txt", ios::out | ios::app); //write errors to
+  trs.open("translated.txt"); //open file to write translated lines to
 
   story(); //call story() to start parsing
 
   fin.close();
   fout.close();
+  trs.close();
 
   cout << "\n\n";
 

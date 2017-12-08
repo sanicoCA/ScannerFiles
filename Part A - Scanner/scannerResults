@@ -1,0 +1,267 @@
+Script started on Wed 06 Dec 2017 03:58:43 PM PST
+]0;marti545@empress:~/cs421/CS421Progs/ScannerFiles[marti545@empress ScannerFiles]$ ./a.out
+Please Enter the name of the file
+partBtesscannertest1
+Word is:watashi
+Type is: PRONOUN
+Word is:wa
+Type is: SUBJECT
+Word is:rika
+Type is: WORD1
+Word is:desu
+Type is: IS
+Word is:.
+Type is: PERIOD
+Word is:watashi
+Type is: PRONOUN
+Word is:wa
+Type is: SUBJECT
+Word is:sensei
+Type is: WORD1
+Word is:desu
+Type is: IS
+Word is:.
+Type is: PERIOD
+Word is:watashi
+Type is: PRONOUN
+Word is:wa
+Type is: SUBJECT
+Word is:ryouri
+Type is: WORD1
+Word is:o
+Type is: OBJECT
+Word is:yarI
+Type is: WORD2
+Word is:masu
+Type is: VERB
+Word is:.
+Type is: PERIOD
+Word is:watashi
+Type is: PRONOUN
+Word is:wa
+Type is: SUBJECT
+Word is:gohan
+Type is: WORD1
+Word is:o
+Type is: OBJECT
+Word is:seito
+Type is: WORD1
+Word is:ni
+Type is: DESTINATION
+Word is:agE
+Type is: WORD2
+Word is:mashita
+Type is: VERBPAST
+Word is:.
+Type is: PERIOD
+Word is:shikashi
+Type is: CONNECTOR
+Word is:seito
+Type is: WORD1
+Word is:wa
+Type is: SUBJECT
+Word is:yorokobI
+Type is: WORD2
+Word is:masendeshita
+Type is: VERBPASTNEG
+Word is:.
+Type is: PERIOD
+Word is:dakara
+Type is: CONNECTOR
+Word is:watashi
+Type is: PRONOUN
+Word is:wa
+Type is: SUBJECT
+Word is:kanashii
+Type is: WORD1
+Word is:deshita
+Type is: WAS
+Word is:.
+Type is: PERIOD
+Word is:soshite
+Type is: CONNECTOR
+Word is:watashi
+Type is: PRONOUN
+Word is:wa
+Type is: SUBJECT
+Word is:toire
+Type is: WORD1
+Word is:ni
+Type is: DESTINATION
+Word is:ikI
+Type is: WORD2
+Word is:mashita
+Type is: VERBPAST
+Word is:.
+Type is: PERIOD
+Word is:watashi
+Type is: PRONOUN
+Word is:wa
+Type is: SUBJECT
+Word is:nakI
+Type is: WORD2
+Word is:mashita
+Type is: VERBPAST
+Word is:.
+Type is: PERIOD
+Word is:eofm
+Lexical error: eofm is not a valid token
+]0;marti545@empress:~/cs421/CS421Progs/ScannerFiles[marti545@empress ScannerFiles]$ ./a.out
+Please Enter the name of the file
+scannertest2
+Word is:daigaku
+Type is: WORD1
+Word is:college
+Lexical error: college is not a valid token
+Word is:kurasu
+Type is: WORD1
+Word is:class
+Lexical error: class is not a valid token
+Word is:hon
+Type is: WORD1
+Word is:book
+Lexical error: book is not a valid token
+Word is:tesuto
+Type is: WORD1
+Word is:test
+Lexical error: test is not a valid token
+Word is:ie
+Type is: WORD1
+Word is:home*
+Lexical error: home* is not a valid token
+Word is:isu
+Type is: WORD1
+Word is:chair
+Lexical error: chair is not a valid token
+Word is:seito
+Type is: WORD1
+Word is:student
+Lexical error: student is not a valid token
+Word is:sensei
+Type is: WORD1
+Word is:teacher
+Lexical error: teacher is not a valid token
+Word is:tomodachi
+Type is: WORD1
+Word is:friend
+Lexical error: friend is not a valid token
+Word is:jidoosha
+Type is: WORD1
+Word is:car
+Lexical error: car is not a valid token
+Word is:gyuunyuu
+Type is: WORD1
+Word is:milk
+Lexical error: milk is not a valid token
+Word is:sukiyaki
+Type is: WORD1
+Word is:tenpura
+Type is: WORD1
+Word is:sushi
+Type is: WORD1
+Word is:biiru
+Type is: WORD1
+Word is:beer
+Lexical error: beer is not a valid token
+Word is:sake
+Type is: WORD1
+Word is:tokyo
+Type is: WORD1
+Word is:kyuushuu
+Type is: WORD1
+Word is:Osaka
+Lexical error: Osaka is not a valid token
+Word is:choucho
+Type is: WORD1
+Word is:butterfly
+Lexical error: butterfly is not a valid token
+Word is:an
+Type is: WORD1
+Word is:idea
+Type is: WORD1
+Word is:yasashii
+Type is: WORD1
+Word is:easy
+Lexical error: easy is not a valid token
+Word is:muzukashii
+Type is: WORD1
+Word is:difficult
+Lexical error: difficult is not a valid token
+Word is:ureshii
+Type is: WORD1
+Word is:pleased
+Lexical error: pleased is not a valid token
+Word is:shiawase
+Type is: WORD1
+Word is:happy
+Lexical error: happy is not a valid token
+Word is:kanashii
+Type is: WORD1
+Word is:sad
+Lexical error: sad is not a valid token
+Word is:omoi
+Type is: WORD1
+Word is:heavy
+Lexical error: heavy is not a valid token
+Word is:oishii
+Type is: WORD1
+Word is:delicious
+Lexical error: delicious is not a valid token
+Word is:tennen
+Type is: WORD1
+Word is:natural
+Lexical error: natural is not a valid token
+Word is:nakI
+Type is: WORD2
+Word is:cry
+Lexical error: cry is not a valid token
+Word is:ikI
+Type is: WORD2
+Word is:go*
+Lexical error: go* is not a valid token
+Word is:tabE
+Type is: WORD2
+Word is:eat
+Lexical error: eat is not a valid token
+Word is:ukE
+Type is: WORD2
+Word is:take*
+Lexical error: take* is not a valid token
+Word is:kakI
+Type is: WORD2
+Word is:write
+Lexical error: write is not a valid token
+Word is:yomI
+Type is: WORD2
+Word is:read
+Lexical error: read is not a valid token
+Word is:nomI
+Type is: WORD2
+Word is:drink
+Lexical error: drink is not a valid token
+Word is:agE
+Type is: WORD2
+Word is:give
+Lexical error: give is not a valid token
+Word is:moraI
+Type is: WORD2
+Word is:receive
+Lexical error: receive is not a valid token
+Word is:butsI
+Type is: WORD2
+Word is:hit
+Lexical error: hit is not a valid token
+Word is:kerI
+Type is: WORD2
+Word is:kick
+Lexical error: kick is not a valid token
+Word is:shaberI
+Type is: WORD2
+Word is:talk
+Lexical error: talk is not a valid token
+Word is:eofm
+Lexical error: eofm is not a valid token
+]0;marti545@empress:~/cs421/CS421Progs/ScannerFiles[marti545@empress ScannerFiles]$ exit
+exit
+
+Script done on Wed 06 Dec 2017 03:59:09 PM PST
